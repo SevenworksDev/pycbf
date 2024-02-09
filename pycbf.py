@@ -10,7 +10,7 @@ try:
     pw = str(conf.get('password'))
     lvl = str(conf.get('levelID'))
 except:
-    input("CBFError: cbf.config file missing. Create one and use the following format shown below.\n\nusername->RobTop\npassword->DontHackMeLol\nlevelID->128\nprefix->/\nwait->2")
+    input("CBFError: cbf.config file missing. Create one and use the following format shown below.\n\nusername->RobTop\npassword->DontHackMeLol\nlevelID->128")
     sys.exit()
 
 def comment_chk(*,username,comment,levelid,percentage,type):
