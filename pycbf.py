@@ -53,8 +53,16 @@ def reply(message, percentage):
 def read():
     url = f"https://gdbrowser.com/api/comments/{lvl}?count=1"
     r = json.loads(requests.get(url).text)[0]
-    com = r['content']
-    return com
+    c = {
+        'ID': r.get('ID'),
+        'playerID': r.get('playerID'),
+        'accountID': r.get('accountID'),
+        'username': r.get('username'),
+        'levelID': r.get('levelID'),
+        'percent': r.get('percent'),
+        'content': r.get('content')
+    }
+    return c
 
 globals()['reply'] = reply
 globals()['read'] = read
@@ -62,7 +70,7 @@ globals()['read'] = read
 helpmsg = "pycbf help\nUsage: pycbf 'script_name.py'\n\nCustom Functions:\n\nread() [used in return to read the comment content]\n\n\nreply(text, percentage) [Comment on the level with a message and a custom percentage]"
 try:
     if sys.argv[1] == "--version":
-        input("pycbf 1.0 (Python 3.8.0)")
+        input("pycbf 1.1 (Python 3.8.0)")
         sys.exit()
     if sys.argv[1] == "--help":
         input(helpmsg)
